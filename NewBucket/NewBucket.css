@@ -1,0 +1,168 @@
+/* NewBucket page specific styles */
+.input-dark {
+    background: #16271d;
+    color: #e0f7e9;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.input-dark:focus {
+    border: 1.5px solid #7fffa7;
+    box-shadow: 0 0 0 2px #1fa46333;
+}
+.input-dark, .notes-area textarea {
+    max-width: 340px;
+    min-width: 120px;
+    width: 95%;
+}
+
+.large-container {
+    max-width: 700px;
+    width: 100%;
+    padding: 48px 40px 40px 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.task-card {
+    background: #1e2d23;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(31, 164, 99, 0.10);
+    padding: 16px 12px 12px 12px;
+    margin-bottom: 18px;
+    animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.subtasks-area {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.subtask-title {
+    background: #22382a;
+    color: #e0f7e9;
+    border: 1px solid #2e7d32;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.98rem;
+    margin-bottom: 4px;
+}
+
+.add-subtask-btn {
+    background: linear-gradient(90deg, #1fa463 0%, #0a4217 100%);
+    color: #e0f7e9;
+    border-radius: 8px;
+    border: none;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.add-subtask-btn:hover {
+    background: linear-gradient(90deg, #0a4217 0%, #1fa463 100%);
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.task-timestamp {
+    color: #7fffa7;
+    font-size: 0.92em;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.edit-task-btn, .delete-task-btn {
+    background: #183c24;
+    color: #7fffa7;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.edit-task-btn:hover {
+    background: #1fa463;
+    color: #fff;
+}
+.delete-task-btn:hover {
+    background: #a63c1f;
+    color: #fff;
+}
+
+.notes-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.notes-area label {
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+.notes-area textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 120px;
+    background: #16271d;
+    color: #e0f7e9;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    padding: 10px 14px 10px 14px;
+    font-size: 1rem;
+    outline: none;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+.notes-area textarea:focus {
+    border: 1.5px solid #7fffa7;
+    box-shadow: 0 0 0 2px #1fa46333;
+}
+
+#bucketTitle {
+    width: 340px !important;
+    max-width: 98%;
+    min-width: 120px;
+    margin-bottom: 16px;
+}
+
+.input-dark[type="text"][readonly] {
+    width: auto !important;
+    min-width: 160px;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 800px) {
+    .large-container {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+    #bucketTitle, .input-dark, .notes-area textarea {
+        width: 98% !important;
+        max-width: 98vw;
+    }
+}

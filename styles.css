@@ -1,0 +1,148 @@
+/* Modern dark green theme and animations */
+body {
+    background: linear-gradient(135deg, #183c24 0%, #0a4217 100%);
+    color: #e0f7e9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #1e2d23;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(10, 66, 23, 0.25);
+    padding: 40px 32px 32px 32px;
+    max-width: 500px; /* to account for large dates, shouldnt trip*/
+    width: 100%;
+    animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) 0.1s both;
+}
+
+.create-bucket-link {
+    display: block;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.create-bucket-btn {
+    background: linear-gradient(90deg, #1fa463 0%, #0a4217 100%);
+    color: #e0f7e9;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(31, 164, 99, 0.18);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    outline: none;
+    letter-spacing: 1px;
+    min-width: 90px;
+    margin-left: 0 !important;
+}
+.create-bucket-btn:hover {
+    background: linear-gradient(90deg, #0a4217 0%, #1fa463 100%);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(31, 164, 99, 0.25);
+}
+
+.buckets-section {
+    background: #22382a;
+    border-radius: 16px;
+    padding: 20px 6px 16px 6px;
+    box-shadow: 0 2px 8px rgba(31, 164, 99, 0.10);
+    animation: fadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.3s both;
+    max-width: 620px;
+    width: 100%;
+}
+.buckets-section h2 {
+    color: #7fffa7;
+    text-align: center;
+    margin: 0 0 16px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.buckets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.bucket-btn {
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    color: #183c24;
+    border: none;
+    border-radius: 12px;
+    padding: 24px 16px 16px 16px;
+    font-size: 1.12rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(67, 233, 123, 0.10);
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-width: 120px;
+    transition: box-shadow 0.2s, background 0.2s;
+    margin: 0;
+    box-sizing: border-box;
+}
+.bucket-btn span {
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+    word-break: break-word;
+    flex: 1 1 auto;
+    color: #000000;
+    font-weight: 700;
+}
+.bucket-btn span[style*="color:#7fffa7"] {
+    color: #000000 !important;
+    font-weight: 700;
+}
+.delete-bucket-btn {
+    min-width: 70px;
+    margin-left: 0 !important;
+    background: #a63c1f !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.delete-bucket-btn:hover {
+    background: #d32f2f !important;
+}
+
+.bucket-btn:hover {
+    background: linear-gradient(90deg, #1fa463 0%, #2e7d32 100%);
+    color: #7fffa7;
+    transform: scale(1.03);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes bucketFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .bucket-btn {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px 8px;
+    }
+}

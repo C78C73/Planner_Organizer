@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Bucket</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="NewBucket.css">
+</head>
+<body>
+    <div class="container large-container">
+        <a href="../index.html" class="create-bucket-link" style="margin-bottom:16px;">
+            <button class="create-bucket-btn" style="padding:8px 20px;font-size:1rem;">← Back</button>
+        </a>
+        <div class="buckets-section" style="margin-bottom:0;">
+            <h2 style="margin-bottom:20px;">Create New Bucket</h2>
+            <form id="bucketForm" autocomplete="off">
+                <label for="bucketTitle" style="color:#7fffa7;">Bucket Title</label>
+                <input type="text" id="bucketTitle" name="bucketTitle" class="input-dark" placeholder="Enter bucket name" required style="width:100%;margin-bottom:16px;">
+                <div style="display:flex; gap:16px; margin-bottom:16px;">
+                    <div style="flex:1;">
+                        <label style="color:#7fffa7;">Date Created</label>
+                        <input type="text" id="dateCreated" class="input-dark" readonly>
+                    </div>
+                    <div style="flex:1;">
+                        <label style="color:#7fffa7;">Last Modified</label>
+                        <input type="text" id="dateModified" class="input-dark" readonly>
+                    </div>
+                </div>
+                <div class="tasks-area">
+                    <label style="color:#7fffa7;">Tasks</label>
+                    <div id="tasksList"></div>
+                    <button type="button" class="create-bucket-btn" id="addTaskBtn" style="margin-top:12px;padding:8px 20px;font-size:1rem;">+ Add Task</button>
+                </div>
+                <div class="notes-area" style="margin-top:20px;">
+                    <label for="bucketNotes" style="color:#7fffa7;">Notes</label>
+                    <textarea id="bucketNotes" class="input-dark" rows="4" placeholder="Add notes for this bucket..." style="width:100%;resize:vertical;"></textarea>
+                </div>
+                <button type="submit" class="create-bucket-btn" style="margin-top:24px;width:100%;">Save Bucket</button>
+            </form>
+        </div>
+    </div>
+    <script src="NewBucket.js"></script>
+</body>
+</html>

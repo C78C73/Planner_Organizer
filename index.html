@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Organizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="NewBucket/NewBucket.html" id="createNewBucketLink" class="create-bucket-link">
+            <button id="createNewBucket" class="create-bucket-btn">Create New Bucket</button>
+        </a>
+        <div class="buckets-section">
+            <h2 style="text-align:center;">Existing Buckets</h2>
+            <div id="bucketsList" class="buckets-list"></div>
+            <div id="noBucketsMsg" style="display:none;text-align:center;color:#7fffa7;margin-top:24px;">No buckets created yet</div>
+        </div>
+    </div>
+    <script>
+    // --- Bucket List Logic ---
+    function getBuckets() {
+        return JSON.parse(localStorage.getItem('buckets') || '[]');
+    }
+    function saveBuckets(buckets) {
+        localStorage.setItem('buckets', JSON.stringify(buckets));
+    }
+    function renderBuckets() {
+        const buckets = getBuckets();
+        const list = document.getElementById('bucketsList');
+        const noMsg = document.getElementById('noBucketsMsg');
+        list.innerHTML = '';
+        if (!buckets.length) {
+            noMsg.style.display = '';
+            return;
+        }
+        noMsg.style.display = 'none';
+        buckets.forEach(bucket => {
+            const div = document.createElement('div');
+            div.className = 'bucket-btn';
+            div.style.display = 'flex';
+            div.style.justifyContent = 'space-between';
+            div.style.alignItems = 'center';
+            div.style.marginBottom = '10px';
+            div.innerHTML = `
+                <span style="flex:1;font-weight:600;">${bucket.title || '(Untitled Bucket)'}</span>
+                <span style="flex:1;font-size:0.95em;color:#7fffa7;">${bucket.dateCreated || ''}</span>
+                <button class="create-bucket-btn" style="padding:4px 14px;font-size:0.95em;margin-left:8px;" onclick="window.location='NewBucket/NewBucket.html?id=${bucket.id}'">Edit/View</button>
+                <button class="delete-bucket-btn" style="padding:4px 10px;font-size:0.95em;margin-left:8px;background:#a63c1f;color:#fff;border-radius:8px;border:none;cursor:pointer;">Delete</button>
+            `;
+            div.querySelector('.delete-bucket-btn').onclick = function(e) {
+                e.stopPropagation();
+                if (confirm('Delete this bucket?')) {
+                    const updated = getBuckets().filter(b => b.id !== bucket.id);
+                    saveBuckets(updated);
+                    renderBuckets();
+                }
+            };
+            list.appendChild(div);
+        });
+    }
+    renderBuckets();
+    </script>
+</body>
+</html>
